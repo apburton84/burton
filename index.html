@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Velocity & Performance Sprints — Monolith Growth</title>
+<meta name="description" content="Two 10‑day, fixed‑price sprints that unlock monolith growth. Ship faster or make critical flows faster. By Anthony Burton." />
+<meta name="theme-color" content="#0ea5e9" />
+<meta property="og:title" content="Velocity & Performance Sprints — Monolith Growth" />
+<meta property="og:description" content="Two 10‑day, fixed‑price sprints: Velocity (ship 2–5× faster) and Performance (cut p95, improve LCP)." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="" />
+<meta name="twitter:card" content="summary" />
+
+<!-- Tailwind CDN (simple, no build step) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", "Helvetica Neue", "Arial", "sans-serif"],
+        },
+        colors: {
+          brand: {
+            50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9', 400: '#22d3ee',
+            500: '#06b6d4', 600: '#0891b2', 700: '#0e7490', 800: '#155e75', 900: '#164e63'
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  /* Smooth scroll */
+  html { scroll-behavior: smooth }
+</style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="h-16 flex items-center justify-between">
+      <a href="#" class="font-semibold tracking-tight text-slate-900">Monolith Growth</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#packages" class="hover:text-brand-700">Packages</a>
+        <a href="#compare" class="hover:text-brand-700">Compare</a>
+        <a href="#faq" class="hover:text-brand-700">FAQ</a>
+        <a href="#contact" class="hover:text-brand-700">Contact</a>
+      </nav>
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-4 py-2 text-white text-sm font-medium shadow-sm hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15A2.25 2.25 0 012.25 17.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.922l-7.5 4.5a2.25 2.25 0 01-2.28 0l-7.5-4.5A2.25 2.25 0 012.25 6.993V6.75"/></svg>
+        Book a call
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="py-16 sm:py-24 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Two 10‑day sprints that unlock <span class="text-brand-700">monolith growth</span>.</h1>
+        <p class="mt-5 text-lg text-slate-600">Choose <strong>Velocity</strong> to ship 2–5× faster, or <strong>Performance</strong> to cut p95 and improve Core Web Vitals—without a risky rewrite.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#velocity" class="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium hover:bg-slate-800">Explore Velocity</a>
+          <a href="#performance" class="rounded-xl bg-white border border-slate-300 px-5 py-3 text-sm font-medium hover:border-slate-400">Explore Performance</a>
+        </div>
+        <p class="mt-6 text-sm text-slate-500">By Anthony Burton • London ↔ Remote • Fixed price • GDPR‑friendly</p>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl border border-slate-200 p-6 shadow-sm bg-gradient-to-br from-slate-50 to-white">
+          <dl class="grid grid-cols-2 gap-6">
+            <div>
+              <dt class="text-sm text-slate-500">Lead time for change</dt>
+              <dd class="text-2xl font-semibold">−50–70%</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Deploy frequency</dt>
+              <dd class="text-2xl font-semibold">×2–×5</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">API p95 (critical)</dt>
+              <dd class="text-2xl font-semibold">−30–60%</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-500">Mobile LCP</dt>
+              <dd class="text-2xl font-semibold">≤2.5s</dd>
+            </div>
+          </dl>
+          <p class="mt-4 text-xs text-slate-500">Measured via DORA, CI logs, APM, and RUM. Results depend on baseline.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Package Selector -->
+<section id="packages" class="py-12 sm:py-16 bg-slate-50 border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Pick your sprint</h2>
+    <p class="mt-2 text-slate-600">Can you release at least weekly? If not, start with <strong>Velocity</strong>. If yes, but growth‑critical paths are slow, go <strong>Performance</strong>.</p>
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <!-- Velocity Card -->
+      <a id="velocity" href="#velocity" class="group block rounded-2xl border border-slate-200 hover:border-brand-400 bg-white p-6 shadow-sm transition">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-100 text-brand-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 12h16.5m0 0-6.75 6.75M20.25 12l-6.75-6.75"/></svg>
+          </span>
+          <h3 class="text-lg font-semibold text-slate-900">Velocity Sprint</h3>
+        </div>
+        <p class="mt-3 text-slate-600">Ship 2–5× faster with safer releases: faster CI, flaky test control, feature flags, and canary deploys.</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-700">
+          <li>• Lead time −50–70%, deploys ×2–×5</li>
+          <li>• Trunk‑based flow, short‑lived PRs</li>
+          <li>• DORA dashboards + runbooks</li>
+        </ul>
+        <div class="mt-5 flex items-center justify-between">
+          <span class="text-slate-900 font-semibold">£9,500 • 10 days</span>
+          <span class="text-brand-700 font-medium group-hover:translate-x-0.5 transition">See details →</span>
+        </div>
+      </a>
+      <!-- Performance Card -->
+      <a id="performance" href="#performance" class="group block rounded-2xl border border-slate-200 hover:border-brand-400 bg-white p-6 shadow-sm transition">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-100 text-brand-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <h3 class="text-lg font-semibold text-slate-900">Performance Sprint</h3>
+        </div>
+        <p class="mt-3 text-slate-600">Cut p95 latency and improve Core Web Vitals on growth‑critical flows with surgical app/DB and frontend fixes.</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-700">
+          <li>• API p95 −30–60%, mobile LCP ≤2.5s</li>
+          <li>• Indexing, caching, async jobs</li>
+          <li>• Perf budgets, SLOs, alerts</li>
+        </ul>
+        <div class="mt-5 flex items-center justify-between">
+          <span class="text-slate-900 font-semibold">£9,500 • 10 days</span>
+          <span class="text-brand-700 font-medium group-hover:translate-x-0.5 transition">See details →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section id="compare" class="py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Which one should we do first?</h2>
+    <p class="mt-2 text-slate-600">Simple rule of thumb: if you can’t release weekly, choose Velocity. If you can, but flows are slow, choose Performance.</p>
+    <div class="mt-8 overflow-x-auto">
+      <table class="w-full text-left text-sm border border-slate-200 rounded-2xl overflow-hidden">
+        <thead class="bg-slate-50 text-slate-600">
+          <tr>
+            <th class="p-3">Signal</th>
+            <th class="p-3">Velocity Sprint</th>
+            <th class="p-3">Performance Sprint</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200">
+          <tr>
+            <td class="p-3">Deploy cadence</td>
+            <td class="p-3">Weekly or worse → Velocity</td>
+            <td class="p-3">Weekly+ already → Performance</td>
+          </tr>
+          <tr>
+            <td class="p-3">CI & flakiness</td>
+            <td class="p-3">CI > 15–20m / flaky tests block merges</td>
+            <td class="p-3">CI acceptable; runtime is the pain</td>
+          </tr>
+          <tr>
+            <td class="p-3">Runtime on hot paths</td>
+            <td class="p-3">Not the main bottleneck (yet)</td>
+            <td class="p-3">API p95 high; LCP > 2.5s; N+1s</td>
+          </tr>
+          <tr>
+            <td class="p-3">Risk surface</td>
+            <td class="p-3">Fearful releases; no flags/canary</td>
+            <td class="p-3">Releases are OK; performance hurts growth</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Details: Velocity -->
+<section class="py-16 border-t border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-start">
+    <div>
+      <h2 class="text-2xl font-bold tracking-tight text-slate-900">Velocity Sprint</h2>
+      <p class="mt-2 text-slate-600">Ship safely and frequently. We cut lead‑time and boost deploy cadence with CI acceleration, test stability, flags, and canary deploys.</p>
+      <ul class="mt-6 space-y-3 text-slate-800">
+        <li>• CI acceleration (caching, parallelism, test splitting)</li>
+        <li>• Flaky test triage & quarantine policy</li>
+        <li>• Trunk‑based flow, short‑lived PRs, PR previews</li>
+        <li>• Feature flags for risky code paths</li>
+        <li>• Canary/blue‑green template; rollback runbooks</li>
+        <li>• DORA dashboards (lead time, deploy freq, CFR, MTTR)</li>
+      </ul>
+      <div class="mt-6 rounded-xl border border-slate-200 p-5 bg-white">
+        <h3 class="font-semibold">Timeline (10 working days)</h3>
+        <ol class="mt-3 space-y-2 text-sm text-slate-700 list-decimal list-inside">
+          <li>D1–2: Baseline DORA, CI profiling, risk register</li>
+          <li>D3–5: CI speedups; flaky test handling; PR previews</li>
+          <li>D6–7: Feature flags + guarded rollout</li>
+          <li>D8: Canary/rollback template; runbooks</li>
+          <li>D9: Dashboards wired up</li>
+          <li>D10: Exec readout & handover</li>
+        </ol>
+      </div>
+    </div>
+    <aside class="lg:sticky lg:top-20 space-y-4">
+      <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+        <p class="text-sm text-slate-600">Investment</p>
+        <p class="text-2xl font-bold">£9,500</p>
+        <p class="text-sm text-slate-600">Fixed price • 50% kickoff / 50% handover</p>
+        <p class="mt-3 text-sm">Guarantee: if CI lead‑time doesn’t improve by <strong>≥40%</strong>, we add a week at no cost (within scope).</p>
+      </div>
+      <a href="#contact" class="block text-center rounded-xl bg-slate-900 text-white py-3 font-medium hover:bg-slate-800">Book a 20‑min call</a>
+    </aside>
+  </div>
+</section>
+
+<!-- Details: Performance -->
+<section class="py-16 border-t border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-start">
+    <div>
+      <h2 class="text-2xl font-bold tracking-tight text-slate-900">Performance Sprint</h2>
+      <p class="mt-2 text-slate-600">Speed up growth‑critical flows (onboarding, search, checkout) with targeted backend + frontend improvements—no rewrite required.</p>
+      <ul class="mt-6 space-y-3 text-slate-800">
+        <li>• App & DB profiling; top‑N hotspots with diffs</li>
+        <li>• Indexing; query plans; N+1 fixes; pagination</li>
+        <li>• Caching: HTTP / CDN / Redis; read/write segregation</li>
+        <li>• Async offloading for heavy work (queues/jobs)</li>
+        <li>• Web vitals: code‑split, critical CSS, image policy</li>
+        <li>• Perf budgets & SLOs with alerting</li>
+      </ul>
+      <div class="mt-6 rounded-xl border border-slate-200 p-5 bg-white">
+        <h3 class="font-semibold">Timeline (10 working days)</h3>
+        <ol class="mt-3 space-y-2 text-sm text-slate-700 list-decimal list-inside">
+          <li>D1–2: Baseline + tracing; pick growth‑critical paths</li>
+          <li>D3–6: DB & app hotspots; caching; async jobs</li>
+          <li>D7–8: Web‑vitals improvements (bundle, images)</li>
+          <li>D9: Budgets/SLOs; dashboards + alerts</li>
+          <li>D10: Exec readout & handover</li>
+        </ol>
+      </div>
+    </div>
+    <aside class="lg:sticky lg:top-20 space-y-4">
+      <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+        <p class="text-sm text-slate-600">Investment</p>
+        <p class="text-2xl font-bold">£9,500</p>
+        <p class="text-sm text-slate-600">Fixed price • 50% kickoff / 50% handover</p>
+        <p class="mt-3 text-sm">Guarantee: if the chosen endpoint’s p95 doesn’t improve by <strong>≥25%</strong>, we add a week at no cost (within scope).</p>
+      </div>
+      <a href="#contact" class="block text-center rounded-xl bg-slate-900 text-white py-3 font-medium hover:bg-slate-800">Book a 20‑min call</a>
+    </aside>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-16 border-t border-slate-200 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">FAQ</h2>
+    <div class="mt-6 grid lg:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+        <h3 class="font-semibold">Will this disrupt our team?</h3>
+        <p class="mt-2 text-slate-700">Minimal. We work read‑only until changes are approved via PRs. One engineer ~1 hour/day is ideal.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+        <h3 class="font-semibold">Security & GDPR?</h3>
+        <p class="mt-2 text-slate-700">Least‑privilege access; no PII leaves your environment; credentials stored securely; DPA on request.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+        <h3 class="font-semibold">What if savings don’t appear?</h3>
+        <p class="mt-2 text-slate-700">You’ll get a ranked list of fixes with modeled impact and before/after dashboards. Both sprints include a performance/velocity guarantee.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+        <h3 class="font-semibold">Who owns the work?</h3>
+        <p class="mt-2 text-slate-700">You own bespoke code/configs. We retain generic templates and know‑how not specific to your data or systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+    <h2 class="text-2xl font-bold tracking-tight text-slate-900">Book a 20‑minute discovery call</h2>
+    <p class="mt-2 text-slate-600">Tell me where it hurts—shipping or runtime—and we’ll confirm fit and a start date the same day.</p>
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+      <a href="mailto:ant@kato.app?subject=Discovery%20Call%20—%20Monolith%20Sprints" class="rounded-xl bg-brand-600 px-6 py-3 text-white font-medium hover:bg-brand-700">Email ant@kato.app</a>
+      <a href="#packages" class="rounded-xl border border-slate-300 px-6 py-3 font-medium hover:border-slate-400">View packages</a>
+    </div>
+    <p class="mt-3 text-xs text-slate-500">Prefer a calendar link? Reply by email and I’ll send one.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-200 py-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600">
+    <p>© <span id="year"></span> Anthony Burton • London ↔ Remote</p>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-slate-900">Home</a>
+      <a href="#packages" class="hover:text-slate-900">Packages</a>
+      <a href="#faq" class="hover:text-slate-900">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
